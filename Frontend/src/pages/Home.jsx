@@ -1,10 +1,21 @@
-import React from 'react'
+import { useEffect } from "react";
+import  testConnection  from "../services/testServices.js";
 
-function Home() {
-  return (
-    <div>Home page
-    </div>
-  )
-}
+const Home = () => {
+  useEffect(() => {
+    const checkConnection = async () => {
+      try {
+        const data = await testConnection();
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-export default Home
+    checkConnection();
+  }, []);
+
+  return <h1>Home Page</h1>;
+};
+
+export default Home;
