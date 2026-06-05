@@ -16,6 +16,8 @@ const commentSchema = new mongoose.Schema(
     text: {
       type: String,
       required: true,
+      trim: true,
+      maxlength: 500,
     },
   },
   {
@@ -38,8 +40,9 @@ const postSchema = new mongoose.Schema(
 
     caption: {
       type: String,
-      default: "",
       trim: true,
+      maxlength: 1000,
+      default: "",
     },
 
     imageUrl: {
@@ -66,4 +69,6 @@ const postSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("Post", postSchema);
+const Post = mongoose.model("Post", postSchema);
+
+export default Post;
