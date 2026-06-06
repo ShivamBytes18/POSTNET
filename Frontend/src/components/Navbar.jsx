@@ -8,49 +8,34 @@ import {
 } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 
 function Navbar() {
   const navigate = useNavigate();
 
-const handleLogout = async () => {
-  try {
-    const token =
-      localStorage.getItem("token");
+  const handleLogout = async () => {
+    try {
+      await api.post("/auth/logout");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
 
-    await axios.post(
-      "http://localhost:8000/api/v1/auth/logout",
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      }
-    );
-  } catch (error) {
-    console.log(error);
-  } finally {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-
-    navigate("/signup", {
-      replace: true,
-    });
-  }
-};
+      navigate("/signup", {
+        replace: true,
+      });
+    }
+  };
 
   return (
     <div className="navbar-container">
-
       <div className="navbar-top">
-
         <h1 className="logo">
           POSTNET
         </h1>
 
         <div className="navbar-right">
-
           <div className="coin-box">
             ⭐ 50
           </div>
@@ -70,13 +55,10 @@ const handleLogout = async () => {
             <FaSignOutAlt />
             <span>Logout</span>
           </button>
-
         </div>
-
       </div>
 
       <div className="search-row">
-
         <input
           type="text"
           placeholder="Search posts, users..."
@@ -92,9 +74,7 @@ const handleLogout = async () => {
         </button>
 
         <FaUserCircle className="search-profile" />
-
       </div>
-
     </div>
   );
 }

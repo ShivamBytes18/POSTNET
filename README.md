@@ -1,40 +1,27 @@
-# 🚀 PostNet - Social Media Platform
+# 🚀 POSTNET
 
-PostNet is a full-stack social media application built using the MERN stack. Users can register, log in, create posts with images, like posts, comment on posts, and interact with content in a modern responsive interface.
+A modern social media web application built with the MERN Stack where users can create posts, upload images, like posts, comment on posts, and manage their content.
+
+## 🌐 Live Demo
+
+Frontend: [Coming Soon]
+
+Backend: https://postnet-5de0.onrender.com
+
+---
 
 ## 📌 Features
 
-### Authentication
-
-* User Registration
-* User Login
+* User Registration & Login
 * JWT Authentication
-* Protected Routes
-* Secure Password Hashing
-
-### Posts
-
 * Create Posts
-* Upload Images
-* View Public Feed
+* Upload Images using Cloudinary
+* Like & Unlike Posts
+* Comment on Posts
 * Delete Own Posts
-
-### Social Interactions
-
-* Like / Unlike Posts
-* Add Comments
-* View Like Count
-* View Comment Count
-* Display Username with Posts and Comments
-
-### UI & UX
-
 * Responsive Design
-* Mobile Friendly Interface
-* Modern Navbar
-* User Initial Avatar
-* Password Show/Hide Toggle
-* Error Handling
+* Protected Routes
+* MongoDB Database Integration
 
 ---
 
@@ -43,84 +30,71 @@ PostNet is a full-stack social media application built using the MERN stack. Use
 ### Frontend
 
 * React.js
-* React Router DOM
+* React Router
 * Axios
 * React Icons
-* CSS3
+* CSS
 
 ### Backend
 
 * Node.js
 * Express.js
-* JWT Authentication
-* Multer
-
-### Database
-
 * MongoDB
 * Mongoose
-
-### Cloud Storage
-
+* JWT
+* Multer
 * Cloudinary
+
+### Deployment
+
+* Frontend: Vercel
+* Backend: Render
+* Database: MongoDB Atlas
 
 ---
 
 ## 📂 Project Structure
 
-```bash
-Postnet/
-│
+POSTNET/
+
 ├── Frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── styles/
-│   │   ├── services/
-│   │   └── App.jsx
-│   │
-│   └── package.json
+
+│ ├── src/
+
+│ ├── public/
+
+│ └── package.json
+
 │
+
 ├── Backend/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── utils/
-│   ├── config/
-│   └── server.js
+
+│ ├── controllers/
+
+│ ├── middleware/
+
+│ ├── models/
+
+│ ├── routes/
+
+│ ├── utils/
+
+│ └── package.json
+
 │
+
 └── README.md
-```
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Environment Variables
 
-### Clone Repository
-
-```bash
-git clone https://github.com/your-username/postnet.git
-
-cd postnet
-```
-
----
-
-### Backend Setup
-
-```bash
-cd Backend
-
-npm install
-```
-
-Create `.env`
+### Backend (.env)
 
 ```env
 PORT=8000
 
-MONGODB_URI=your_mongodb_connection_string
+MONGODB_URI=your_mongodb_uri
 
 ACCESS_TOKEN_SECRET=your_access_secret
 
@@ -133,13 +107,29 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-Start Backend
+### Frontend (.env)
 
-```bash
-npm run dev
+```env
+VITE_API_URL=https://postnet-5de0.onrender.com/api/v1
 ```
 
----
+## 🚀 Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/ShivamBytes18/POSTNET.git
+```
+
+### Backend Setup
+
+```bash
+cd Backend
+
+npm install
+
+npm run dev
+```
 
 ### Frontend Setup
 
@@ -147,109 +137,28 @@ npm run dev
 cd Frontend
 
 npm install
-```
 
-Create `.env`
-
-```env
-VITE_API_URL=http://localhost:8000/api/v1
-```
-
-Start Frontend
-
-```bash
 npm run dev
 ```
 
----
-
 ## 📸 Screenshots
 
-### Login Page
+Add screenshots of:
 
-Add screenshot here
-
-### Signup Page
-
-Add screenshot here
-
-### Home Feed
-
-Add screenshot here
-
-### Create Post
-
-Add screenshot here
-
----
-
-## 🔗 API Endpoints
-
-### Authentication
-
-```http
-POST /api/v1/auth/register
-POST /api/v1/auth/login
-POST /api/v1/auth/logout
-GET  /api/v1/auth/me
-```
-
-### Posts
-
-```http
-POST   /api/v1/posts/create
-GET    /api/v1/posts/feed
-PUT    /api/v1/posts/:postId/like
-POST   /api/v1/posts/:postId/comment
-DELETE /api/v1/posts/:postId
-```
-
----
-
-## 🚀 Deployment
-
-### Frontend
-
-Vercel
-
-### Backend
-
-Render
-
-### Database
-
-MongoDB Atlas
-
-### Media Storage
-
-Cloudinary
-
----
-
-## 🎯 Future Enhancements
-
-* User Profiles
-* Follow / Unfollow System
-* Real-Time Notifications
-* Search Functionality
-* Dark Mode
-* Infinite Scrolling
-* Real-Time Chat
-
----
+* Login Page
+* Signup Page
+* Home Feed
+* Create Post
+* Comments Section
 
 ## 👨‍💻 Author
 
 **Shivam Upadhyay**
 
-B.Tech Student | Full Stack Developer
-
 GitHub: https://github.com/ShivamBytes18
 
-LinkedIn: https://www.linkedin.com/in/shivam-upadhyay-0811182aa/
+LinkedIn: Add Your LinkedIn Profile
 
----
+## ⭐ Support
 
-## 📄 License
-
-This project is developed for educational and learning purposes.
+If you like this project, consider giving it a star on GitHub.

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import "../styles/postCard.css";
 
 import {
@@ -20,20 +20,10 @@ function PostCard({ post }) {
   const [commentText, setCommentText] =
     useState("");
 
-  
-
   const handleLike = async () => {
     try {
-      const res = await axios.put(
-        `http://localhost:8000/api/v1/posts/${post._id}/like`,
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(
-              "token"
-            )}`,
-          },
-        }
+      const res = await api.put(
+        `/posts/${post._id}/like`
       );
 
       setLikes(
@@ -49,23 +39,14 @@ function PostCard({ post }) {
     }
   };
 
-  
-
   const handleComment = async () => {
     if (!commentText.trim()) return;
 
     try {
-      const res = await axios.post(
-        `http://localhost:8000/api/v1/posts/${post._id}/comment`,
+      const res = await api.post(
+        `/posts/${post._id}/comment`,
         {
           text: commentText,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(
-              "token"
-            )}`,
-          },
         }
       );
 
@@ -84,7 +65,6 @@ function PostCard({ post }) {
     }
   };
 
-  
   const handleDelete = async () => {
     const confirmDelete =
       window.confirm(
@@ -94,15 +74,8 @@ function PostCard({ post }) {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(
-        `http://localhost:8000/api/v1/posts/${post._id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(
-              "token"
-            )}`,
-          },
-        }
+      await api.delete(
+        `/posts/${post._id}`
       );
 
       alert(
@@ -122,37 +95,30 @@ function PostCard({ post }) {
 
   return (
     <div className="post-card">
-      {/* Header */}
-
       <div className="post-header">
-       <div
-        className="avatar"
-        style={{
-         backgroundColor: `hsl(${
-          post.username
-        .charCodeAt(0) * 17
-        }, 70%, 50%)`,
-      }}
+        <div
+          className="avatar"
+          style={{
+            backgroundColor: `hsl(${
+              post.username.charCodeAt(0) * 17
+            }, 70%, 50%)`,
+          }}
         >
-     {post.username
-       ?.charAt(0)
-       .toUpperCase()}
-      </div>
+          {post.username
+            ?.charAt(0)
+            .toUpperCase()}
+        </div>
 
         <h4 className="post-user">
           {post.username}
         </h4>
       </div>
 
-      {/* Caption */}
-
       {post.caption && (
         <p className="post-caption">
           {post.caption}
         </p>
       )}
-
-      {/* Image */}
 
       {post.imageUrl && (
         <img
@@ -161,8 +127,6 @@ function PostCard({ post }) {
           className="post-image"
         />
       )}
-
-      {/* Actions */}
 
       <div className="post-actions">
         <button
@@ -189,8 +153,6 @@ function PostCard({ post }) {
         </button>
       </div>
 
-      {/* Comment Box */}
-
       <div className="comment-box">
         <input
           type="text"
@@ -209,8 +171,6 @@ function PostCard({ post }) {
           Post
         </button>
       </div>
-
-      {/* Comments */}
 
       <div className="comments">
         {comments.length > 0 ? (

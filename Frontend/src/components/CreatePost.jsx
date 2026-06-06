@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import { FaCamera, FaSmile } from "react-icons/fa";
 import "../styles/createPost.css";
 
@@ -17,16 +17,9 @@ function CreatePost() {
         formData.append("image", image);
       }
 
-      await axios.post(
-        "http://localhost:8000/api/v1/posts/create",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(
-              "token"
-            )}`,
-          },
-        }
+      await api.post(
+        "/posts/create",
+        formData
       );
 
       setCaption("");
@@ -71,9 +64,7 @@ function CreatePost() {
       )}
 
       <div className="post-footer">
-
         <div className="left-icons">
-
           <label>
             <FaCamera />
 
@@ -87,7 +78,6 @@ function CreatePost() {
           </label>
 
           <FaSmile />
-
         </div>
 
         <button
@@ -96,7 +86,6 @@ function CreatePost() {
         >
           Post
         </button>
-
       </div>
     </div>
   );

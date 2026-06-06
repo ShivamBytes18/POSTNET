@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import PostCard from "./PostCard";
 import "../styles/feed.css";
 
@@ -10,8 +10,8 @@ function Feed() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:8000/api/v1/posts/feed"
+        const res = await api.get(
+          "/posts/feed"
         );
 
         setPosts(res.data.data);
@@ -35,7 +35,6 @@ function Feed() {
 
   return (
     <div className="feed-container">
-
       <div className="feed-header">
         <span className="feed-title">
           Recent Posts
