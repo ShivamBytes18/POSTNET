@@ -4,16 +4,49 @@ import {
   FaSearch,
   FaMoon,
   FaUserCircle,
+  FaSignOutAlt,
 } from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 function Navbar() {
+  const navigate = useNavigate();
+
+const handleLogout = async () => {
+  try {
+    const token =
+      localStorage.getItem("token");
+
+    await axios.post(
+      "http://localhost:8000/api/v1/auth/logout",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        withCredentials: true,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/signup", {
+      replace: true,
+    });
+  }
+};
+
   return (
     <div className="navbar-container">
 
       <div className="navbar-top">
 
         <h1 className="logo">
-          Social
+          POSTNET
         </h1>
 
         <div className="navbar-right">
@@ -29,6 +62,14 @@ function Navbar() {
           <FaBell className="icon" />
 
           <FaUserCircle className="profile-icon" />
+
+          <button
+            className="logout-btn"
+            onClick={handleLogout}
+          >
+            <FaSignOutAlt />
+            <span>Logout</span>
+          </button>
 
         </div>
 

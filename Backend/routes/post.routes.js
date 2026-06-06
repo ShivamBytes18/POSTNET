@@ -33,6 +33,7 @@ import {
   getFeed,
   toggleLike,
   addComment,
+  deletePost
 } from "../controllers/post.controller.js";
 
 const router = Router();
@@ -59,6 +60,12 @@ router.post(
   "/:postId/comment",
   verifyJWT,
   addComment
+);
+
+router.delete(
+  "/:postId",
+  verifyJWT,
+  deletePost
 );
 
 export default router;

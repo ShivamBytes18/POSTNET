@@ -3,24 +3,28 @@
   padding: 15px;
   border-radius: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
 .navbar-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
 }
 
 .logo {
   margin: 0;
   font-size: 2rem;
   color: #111827;
+  font-weight: 700;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .coin-box,
@@ -71,6 +75,11 @@
   color: white;
   cursor: pointer;
   font-size: 1rem;
+  transition: 0.3s;
+}
+
+.circle-btn:hover {
+  background: #0f5ed7;
 }
 
 .search-profile {
@@ -78,7 +87,42 @@
   color: orange;
 }
 
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  border: none;
+  background: #ff4d4f;
+  color: white;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* Tablet */
+
 @media (max-width: 768px) {
+  .navbar-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .logo {
     font-size: 1.7rem;
   }
@@ -96,5 +140,59 @@
   .circle-btn {
     width: 45px;
     height: 45px;
+  }
+
+  .profile-icon {
+    font-size: 2rem;
+  }
+
+  .search-profile {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 12px;
+  }
+
+  .navbar-top {
+    gap: 12px;
+  }
+
+  .navbar-right {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .search-row {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    width: 100%;
+    order: 1;
+  }
+
+  .circle-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .search-profile {
+    display: none;
+  }
+
+  .logout-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
   }
 }

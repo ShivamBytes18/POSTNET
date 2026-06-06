@@ -48,7 +48,7 @@ body {
   border-color: #1677ff;
 }
 
-.auth-card button {
+.auth-submit-btn {
   width: 100%;
   padding: 14px;
   border: none;
@@ -61,7 +61,7 @@ body {
   transition: 0.3s;
 }
 
-.auth-card button:hover {
+.auth-submit-btn:hover {
   background: #0f5ed7;
 }
 
@@ -82,12 +82,81 @@ body {
   text-decoration: underline;
 }
 
-@media (max-width: 480px) {
+/* Password Field */
+
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 45px;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 42%;
+  transform: translateY(-50%);
+
+  background: transparent !important;
+  border: none !important;
+  outline: none;
+
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+
+  color: #666;
+  cursor: pointer;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password:hover {
+  color: #1677ff;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
   .auth-card {
-    padding: 25px;
+    max-width: 500px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 15px;
+  }
+
+  .auth-card {
+    padding: 20px;
+    border-radius: 15px;
   }
 
   .auth-card h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+  }
+
+  .auth-card input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .password-field input {
+    padding-right: 40px;
+  }
+
+  .auth-submit-btn {
+    padding: 12px;
+    font-size: 0.95rem;
   }
 }

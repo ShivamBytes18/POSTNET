@@ -4,34 +4,54 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/ApiError.js";
 
 const verifyJWT = asyncHandler(async (req, res, next) => {
+  try {
+    console.log(
+      "AUTH HEADER:",
+      req.header("Authorization")
+    );
 
-  console.log("AUTH HEADER:", req.header("Authorization"));
+    const token =
+      req.header("Authorization")?.replace(
+        "Bearer ",
+        ""
+      );
 
-  const token =
-    req.header("Authorization")?.replace("Bearer ", "");
+    console.log("TOKEN:", token);
 
-  console.log("TOKEN:", token);
+    if (!token) {
+      throw new ApiError(
+        401,
+        "Unauthorized request"
+      );
+    }
 
-  if (!token) {
-    throw new ApiError(401, "Unauthorized request");
+    const decodedToken = jwt.verify(
+      token,
+      process.env.ACCESS_TOKEN_SECRET
+    );
+
+    const user = await User.findById(
+      decodedToken.userId
+    ).select(
+      "-password -refreshToken"
+    );
+
+    if (!user) {
+      throw new ApiError(
+        401,
+        "Invalid Access Token"
+      );
+    }
+
+    req.user = user;
+
+    next();
+  } catch (error) {
+    throw new ApiError(
+      401,
+      "Session expired. Please login again."
+    );
   }
-
-  const decodedToken = jwt.verify(
-    token,
-    process.env.ACCESS_TOKEN_SECRET
-  );
-
-  const user = await User.findById(decodedToken.userId).select(
-    "-password -refreshToken"
-  );
-
-  if (!user) {
-    throw new ApiError(401, "Invalid Access Token");
-  }
-
-  req.user = user;
-
-  next();
 });
 
 export default verifyJWT;
