@@ -244,9 +244,9 @@ Cloudinary
 
 B.Tech Student | Full Stack Developer
 
-GitHub: https://github.com/your-github-username
+GitHub: https://github.com/ShivamBytes18
 
-LinkedIn: https://linkedin.com/in/your-linkedin-profile
+LinkedIn: https://www.linkedin.com/in/shivam-upadhyay-0811182aa/
 
 ---
 
