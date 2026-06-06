@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import dbconnect from "./config/Connectdb.js"
 import router from "./routes/test.route.js";
 import authRoutes from "./routes/auth.routes.js";
-
+import postRoutes from "./routes/post.routes.js";
 
 dotenv.config();
 
@@ -27,6 +27,7 @@ app.use(cookieParser());
 // Routes
 app.use("/api/v1/test", router);
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/posts", postRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);

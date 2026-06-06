@@ -4,8 +4,13 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/ApiError.js";
 
 const verifyJWT = asyncHandler(async (req, res, next) => {
+
+  console.log("AUTH HEADER:", req.header("Authorization"));
+
   const token =
     req.header("Authorization")?.replace("Bearer ", "");
+
+  console.log("TOKEN:", token);
 
   if (!token) {
     throw new ApiError(401, "Unauthorized request");
