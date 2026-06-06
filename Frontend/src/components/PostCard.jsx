@@ -125,11 +125,19 @@ function PostCard({ post }) {
       {/* Header */}
 
       <div className="post-header">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          alt="avatar"
-          className="avatar"
-        />
+       <div
+        className="avatar"
+        style={{
+         backgroundColor: `hsl(${
+          post.username
+        .charCodeAt(0) * 17
+        }, 70%, 50%)`,
+      }}
+        >
+     {post.username
+       ?.charAt(0)
+       .toUpperCase()}
+      </div>
 
         <h4 className="post-user">
           {post.username}
