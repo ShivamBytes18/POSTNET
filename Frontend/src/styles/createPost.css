@@ -1,0 +1,94 @@
+.create-post-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.create-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-post-header h2 {
+  margin: 0;
+}
+
+.post-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.post-tabs button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #f1f5f9;
+}
+
+.active-tab {
+  background: #1677ff !important;
+  color: white;
+}
+
+.create-post-card textarea {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  outline: none;
+  resize: none;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.preview-image {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.post-footer {
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.4rem;
+  color: #1677ff;
+  cursor: pointer;
+}
+
+.post-btn {
+  border: none;
+  background: #1677ff;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .create-post-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .post-footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .post-btn {
+    width: 100%;
+  }
+}

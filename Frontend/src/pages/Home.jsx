@@ -1,21 +1,29 @@
-import { useEffect } from "react";
-import  testConnection  from "../services/testServices.js";
+// import Navbar from "../components/Navbar.jsx";
+// import CreatePost from "../components/CreatePost.jsx";
+// import Feed from "../components/Feed.jsx";
+// import "../styles/home.css";
 
-const Home = () => {
-  useEffect(() => {
-    const checkConnection = async () => {
-      try {
-        const data = await testConnection();
-        console.log(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+// function Home() {
+//   return (
+//     <div className="home">
+//       <Navbar />
+//       <CreatePost />
+//       <Feed />
+//     </div>
+//   );
+// }
 
-    checkConnection();
-  }, []);
-
-  return <h1>Home Page</h1>;
-};
+// export default Home;
+import "../styles/home.css";
+import Navbar from "../components/Navbar.jsx";
+import Feed from "../components/Feed.jsx";
+function Home() {
+  return (
+    <div>
+      <Navbar/>
+      <Feed/>
+    </div>
+  );
+}
 
 export default Home;
