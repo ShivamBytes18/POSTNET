@@ -1,8 +1,8 @@
-# 🚀 POSTNET
+#  POSTNET
 
 A modern social media web application built with the MERN Stack where users can create posts, upload images, like posts, comment on posts, and manage their content.
 
-## 🌐 Live Demo
+##  Live Demo
 
 Frontend: https://postnet-dkvceko0d-shiv230104031-8883s-projects.vercel.app/
 
@@ -10,7 +10,7 @@ Backend: https://postnet-5de0.onrender.com
 
 ---
 
-## 📌 Features
+##  Features
 
 * User Registration & Login
 * JWT Authentication
@@ -25,7 +25,7 @@ Backend: https://postnet-5de0.onrender.com
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 
@@ -53,7 +53,7 @@ Backend: https://postnet-5de0.onrender.com
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 POSTNET/
 
@@ -87,24 +87,24 @@ POSTNET/
 
 ---
 
-## ⚙️ Environment Variables
+##  Environment Variables
 
 ### Backend (.env)
 
 ```env
 PORT=8000
 
-MONGODB_URI=your_mongodb_uri
+MONGODB_URI=mongodb_uri
 
-ACCESS_TOKEN_SECRET=your_access_secret
+ACCESS_TOKEN_SECRET=access_secret
 
-REFRESH_TOKEN_SECRET=your_refresh_secret
+REFRESH_TOKEN_SECRET=refresh_secret
 
-CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_CLOUD_NAME=cloud_name
 
-CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_KEY=api_key
 
-CLOUDINARY_API_SECRET=your_api_secret
+CLOUDINARY_API_SECRET=api_secret
 ```
 
 ### Frontend (.env)
@@ -113,7 +113,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 VITE_API_URL=https://postnet-5de0.onrender.com/api/v1
 ```
 
-## 🚀 Installation
+##  Installation
 
 ### Clone Repository
 
@@ -151,14 +151,14 @@ Add screenshots of:
 * Create Post
 * Comments Section
 
-## 👨‍💻 Author
+## 👨 Author
 
 **Shivam Upadhyay**
 
 GitHub: https://github.com/ShivamBytes18
 
-LinkedIn: Add Your LinkedIn Profile
+LinkedIn: https://www.linkedin.com/in/shivam-upadhyay-0811182aa
 
-## ⭐ Support
+##  Support
 
 If you like this project, consider giving it a star on GitHub.
