@@ -7,23 +7,81 @@ import ApiResponse from "../utils/ApiResponse.js";
 import uploadOnCloudinary from "../utils/cloudinaryUpload.js";
 
 // ================= CREATE POST =================
+// export const createPost = asyncHandler(async (req, res) => {
+//   const { caption } = req.body;
+
+//   let imageUrl = "";
+//   let videoUrl = "";
+
+//   // Upload Image
+//   if (req.files?.image?.[0]) {
+//     const image = await uploadOnCloudinary(
+//       req.files.image[0].path,
+//       "image"
+//     );
+
+//     imageUrl = image?.secure_url || "";
+//   }
+
+//   // Upload Video
+//   if (req.files?.video?.[0]) {
+//     const video = await uploadOnCloudinary(
+//       req.files.video[0].path,
+//       "video"
+//     );
+
+//     videoUrl = video?.secure_url || "";
+//   }
+
+//   if (!caption && !imageUrl && !videoUrl) {
+//     throw new ApiError(
+//       400,
+//       "Post must contain caption, image or video"
+//     );
+//   }
+
+//   const post = await Post.create({
+//     user: req.user._id,
+//     username: req.user.username,
+//     caption,
+//     imageUrl,
+//     videoUrl,
+//   });
+
+//   return res.status(201).json(
+//     new ApiResponse(
+//       201,
+//       post,
+//       "Post created successfully"
+//     )
+//   );
+// });
+
 export const createPost = asyncHandler(async (req, res) => {
+  console.log("BODY:", req.body);
+  console.log("FILES:", req.files);
+
   const { caption } = req.body;
 
   let imageUrl = "";
   let videoUrl = "";
 
-  // Upload Image
   if (req.files?.image?.[0]) {
+    console.log(
+      "IMAGE PATH:",
+      req.files.image[0].path
+    );
+
     const image = await uploadOnCloudinary(
       req.files.image[0].path,
       "image"
     );
 
+    console.log("IMAGE RESPONSE:", image);
+
     imageUrl = image?.secure_url || "";
   }
 
-  // Upload Video
   if (req.files?.video?.[0]) {
     const video = await uploadOnCloudinary(
       req.files.video[0].path,
@@ -56,6 +114,7 @@ export const createPost = asyncHandler(async (req, res) => {
     )
   );
 });
+
 
 // ================= FEED =================
 export const getFeed = asyncHandler(async (req, res) => {
