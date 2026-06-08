@@ -4,7 +4,7 @@ A modern social media web application built with the MERN Stack where users can 
 
 ##  Live Demo
 
-Frontend: https://postnet-dkvceko0d-shiv230104031-8883s-projects.vercel.app/
+Frontend:postnet-bay.vercel.app
 
 Backend: https://postnet-5de0.onrender.com
 
