@@ -1,18 +1,53 @@
+// import multer from "multer";
+// import path from "path";
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./public/temp");
+//   },
+
+//   filename: function (req, file, cb) {
+//     const uniqueSuffix =
+//       Date.now() + "-" + Math.round(Math.random() * 1e9);
+
+//     cb(
+//       null,
+//       uniqueSuffix + path.extname(file.originalname)
+//     );
+//   },
+// });
+
+// export const upload = multer({
+//   storage,
+// });
+
 import multer from "multer";
 import path from "path";
+import fs from "fs";
+
+const uploadPath = "./public/temp";
+
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath, {
+    recursive: true,
+  });
+}
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/temp");
+    cb(null, uploadPath);
   },
 
   filename: function (req, file, cb) {
     const uniqueSuffix =
-      Date.now() + "-" + Math.round(Math.random() * 1e9);
+      Date.now() +
+      "-" +
+      Math.round(Math.random() * 1e9);
 
     cb(
       null,
-      uniqueSuffix + path.extname(file.originalname)
+      uniqueSuffix +
+        path.extname(file.originalname)
     );
   },
 });
