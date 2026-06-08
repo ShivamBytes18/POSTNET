@@ -1,18 +1,3 @@
-// import React from 'react'
-// import {Routes , Route} from 'react-router-dom'
-// import Home from "./pages/Home.jsx"
-// import Login from "./pages/Login.jsx"
-// function App() {
-//   return (
-//     <Routes>
-//       <Route path = '/' element={<Home/>}/>
-//        <Route path = '/login' element={<Login/>}/>
-//     </Routes>
-//   )
-// }
-
-// export default App
-
 import {
   Routes,
   Route,
@@ -44,7 +29,7 @@ function App() {
           token ? (
             <Home />
           ) : (
-            <Navigate to="/login" />
+            <Navigate to="/signup" />
           )
         }
       />
