@@ -26,19 +26,33 @@ export const registerUser = asyncHandler(async (req, res) => {
     password,
   });
 
+  const accessToken = generateAccessToken(user._id);
+  const refreshToken = generateRefreshToken(user._id);
+
+  user.refreshToken = refreshToken;
+  await user.save({ validateBeforeSave: false });
+
   const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
 
-  return res.status(201).json(
-    new ApiResponse(
-      201,
-      createdUser,
-      "User registered successfully"
-    )
-  );
+  return res
+    .status(201)
+    .cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: false,
+    })
+    .json(
+      new ApiResponse(
+        201,
+        {
+          user: createdUser,
+          accessToken,
+        },
+        "User registered successfully"
+      )
+    );
 });
-
 
 // LOGIN USER
 export const loginUser = asyncHandler(async (req, res) => {

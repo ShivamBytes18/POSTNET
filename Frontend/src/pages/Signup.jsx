@@ -27,17 +27,29 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const res = await api.post(
-        "/auth/register",
-        formData
-      );
+    const res = await api.post(
+  "/auth/register",
+  formData
+);
 
-      alert(
-        res.data?.message ||
-          "Signup Successful"
-      );
+// Save access token
+localStorage.setItem(
+  "token",
+  res.data.data.accessToken
+);
 
-      navigate("/");
+// Save user details
+localStorage.setItem(
+  "user",
+  JSON.stringify(res.data.data.user)
+);
+
+alert(
+  res.data.message ||
+    "Signup Successful"
+);
+
+navigate("/");
     } catch (error) {
       const message =
         error.response?.data?.message ||
