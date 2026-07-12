@@ -37,7 +37,7 @@ function Signup() {
           "Signup Successful"
       );
 
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       const message =
         error.response?.data?.message ||
